@@ -8,7 +8,7 @@ import os
 from optimum.onnxruntime import ORTOptimizer
 from optimum.onnxruntime.configuration import OptimizationConfig
 
-logger = setup_logger(__name__, log_file="inferai.log")
+logger = setup_logger(__name__, log_file="logs/inferai.log")
 
 
 class Optimizer:

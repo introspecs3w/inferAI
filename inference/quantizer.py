@@ -14,7 +14,7 @@ from onnxruntime.quantization import (
     QuantType,
 )
 
-logger = setup_logger(__name__, log_file="inferai.log")
+logger = setup_logger(__name__, log_file="logs/inferai.log")
 
 
 class Quantizer:
@@ -32,7 +32,7 @@ class Quantizer:
         self.per_channel = True
         
 
-    def quantize(self, model_dir: str, out_dir: str) -> str:
+    def quantize(self, model_dir: str, out_dir: str, model_type: str) -> str:
         """
         Optimize an exported ONNX model directory using Optimum.
         """

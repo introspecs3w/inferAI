@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inferai"
+version = "0.0.0"
+description = "A minimal Python project template for the inferAI workspace."
+readme = "README.md"
+requires-python = ">=3.8"
+authors = [ { name = "Your Name", email = "you@example.com" } ]
+license = { text = "MIT" }
+dependencies = []
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-q"
+testpaths = ["tests"]

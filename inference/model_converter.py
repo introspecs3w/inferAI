@@ -23,7 +23,7 @@ from optimum.onnxruntime import (
     ORTModelForImageClassification,
 )
 
-logger = setup_logger(__name__, log_file="inferai.log")
+logger = setup_logger(__name__, log_file="logs/inferai.log")
 
 
 class ModelConverter:
@@ -46,6 +46,8 @@ class ModelConverter:
         # print(f"Converting model: {name}")
         logger.info(f"Converting model: {name}")
         path = os.path.join(self.output_dir, f"{name.replace("/", "_").lower()}")
+
+        path = os.path.join(path, f"{model['backend']}_{model['provider']}_OPT_{model['optimization_level']}_QUANT_{model['quantized']}")
         # print(f"path: {path}")
         # logger.info(f"path: {path}")
 
@@ -132,7 +134,7 @@ class ModelConverter:
             # quant_dir = os.path.join(path, "_quantized")
             # mode = qcfg.get("mode", "dynamic")
             quantizer = Quantizer()
-            quantizer.quantize(path, quant_dir)
+            quantizer.quantize(path, quant_dir, model["type"])
             logger.info(f"Quantized model saved at: {quant_dir}")
 
 
