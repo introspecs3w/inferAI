@@ -1,0 +1,25 @@
+models:
+  # - name: "bert-base-uncased"
+  #   type: "text"
+  #   backend: "onnx"
+  #   provider: "CUDAExecutionProvider"
+  #   # provider: "CPUExecutionProvider"
+  #   optimization_level: 0
+  #   quantized: true
+  #   # quantized: false
+
+  - name: "distilbert-base-uncased"
+    type: "text"
+    backend: "onnx"
+    # provider: "CUDAExecutionProvider"
+    provider: "CPUExecutionProvider"
+    optimization_level: 2
+    quantized: true
+
+  - name: "google/vit-base-patch16-224"
+    type: "image"
+    backend: "onnx"
+    # provider: "CUDAExecutionProvider"
+    provider: "CPUExecutionProvider"
+    optimization_level: 2
+    quantized: false
